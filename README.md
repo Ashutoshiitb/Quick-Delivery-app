@@ -1,5 +1,7 @@
 Food Delivery App
-Individual Project for Gradaute Software Engineering course Enterprise Distributed Systems.
+Group project of cs349 - Members are  Ayush Narwal, Kanishk Garg,Shubham Mehroliya
+Ashutosh Singh 
+.
 
 Goal
 The goal is to build a distributed enterprise web application which allows the user to order their food online. There are 2 actors in the system:
