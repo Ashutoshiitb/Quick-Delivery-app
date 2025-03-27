@@ -1,67 +1,33 @@
+Food Delivery App
+Individual Project for Gradaute Software Engineering course Enterprise Distributed Systems.
 
-📦 Quick Delivery app
-A fast and efficient food delivery app similar to GrubHub, allowing users to order food, track deliveries in real-time, and make secure payments. 🚀  
+Goal
+The goal is to build a distributed enterprise web application which allows the user to order their food online. There are 2 actors in the system:
+Restaurant Owner - Can add new restaurant, menu items, change status of orders.
+Customers - Can search for different restaurants, dishes, place their order and view order status.
+We were tasked with this project requirement so that we can learn to build enterprise MERN stack applications using various distributed technologies such as Apache Kafka as message queues, Redis for caching, etc.
+System Design
+Technology stack
 
----
 
-🌟 Features
-✅ User Roles: Customers, Drivers, and Admins  
-✅ Order Placement & Status Updates  
-✅ Real-Time Delivery Tracking  
-✅ Secure Payment Processing  
-✅ Notifications (Order Updates & Alerts)  
-✅ Admin Dashboard for Performance Metrics  
 
----
+Area	Technology
+Front-End	React, React Router, Bootstrap, HTML5, CSS3, Javascript ( ES6 )
+Message Queue (Middleware)	Apache Kafka
+Authentication Middleware	Passport.js
+Back-End	Express, Node.js
+In-Memory Caching / Datastore	Redis
+API Testing	Mocha, Chai, Postman
+Performance Testing	JMeter
+Database	MySQL (Amazon RDS), MongoDB (Mongo Atlas on AWS)
+Deployment	Amazon Web Services
 
-🛠️ Tech Stack
-- Backend: Node.js, Express.js  
-- Database: MongoDB  
-- Frontend: React.js  
-- Authentication: JWT  
-- Payments: Stripe Integration  
+Database Design trade-offs
+Used MongoDB (NoSQL) to store large amounts of read heavy data which doesn't require transaction support such as Restaurant details, their menu items, etc.
 
----
+Used MySQL to store data which requires transaction support such as user profile information, order details, etc.
 
-📌 Installation Guide
-1️⃣ Clone the Repository
-```sh
-git clone https://github.com/Ashutoshiitb/Quick-Delivery-App.git
-cd Quick-Delivery-App
-```
-
-2️⃣ Install Dependencies
-```sh
-npm install
-```
-
-3️⃣ Set Up Environment Variables
-Create a `.env` file in the root folder and add:  
-```
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-STRIPE_SECRET_KEY=your_stripe_key
-```
-
-### 4️⃣ Run the Application
-```sh
-npm start
-```
-The backend will start at **http://localhost:5000** 🚀  
-
----
-
-## 🖥️ Admin Panel
-To access the admin panel, log in with an admin account. The panel allows monitoring of orders, deliveries, and user activities.  
-
----
-
-## 🚀 Deployment
-To deploy the app, use:  
-- Backend: Render, Heroku, or AWS  
-- Frontend: Netlify or Vercel  
-
+Used database pl stored procedure for our booking and payment functionality so that we can provide transaction support and if anything goes wrong in between then we can roll back to a point where the database is in a consistent state.
 ---
 
 ## 📞 Support
